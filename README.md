@@ -1,16 +1,26 @@
 # log4j2-redis
 
 
-实现log4j2日志写入到redis中	
+###实现log4j2日志写入到redis中	
 
-1、采用slf4j作为入口
-2、实现采用log4j2实现
+1、采用slf4j作为抽象入口
+2、实现采用log4j2
 3、redis支持集群
 
 
+####代码：
+    
+    private static Logger logger = LoggerFactory.getLogger(RedisAppenderTest.class);
+	logger.info("test");
 
-log4j2.xml 配置：
+    
 
+#####例子参考
+参考
+com-jk-log4jredis/src/test/java/com/jk/log4j2Redis/RedisAppenderTest.java
+
+
+######log4j2.xml 配置：
 
     <Appenders>
 		<Console name="console" target="SYSTEM_OUT">
