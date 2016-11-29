@@ -1,52 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE log4j:configuration PUBLIC "-//Apache//DTD Log4j 1.2//EN"
-                                    "http://logging.apache.org/log4j/docs/api/org/apache/log4j/xml/log4j.dtd">
-<log4j:configuration>
-	<appender class="org.apache.log4j.ConsoleAppender" name="RootConsoleAppender">
-		<param name="Threshold" value="debug,info" />
-		<layout class="org.iff.infra.util.ThreadIdPatternLayout">
-			<param name="ConversionPattern" value=" [%-d{yyyy-MM-dd HH:mm:ss}] [%p] [%C{1}:%L] [%t] %m%n" />
-		</layout>
-	</appender>
-	<appender class="org.apache.log4j.RollingFileAppender" name="FileAppender">
-		<param name="Threshold" value="info" />
-		<param name="File" value="log-%-d{yyyy-MM-dd}.log" />
-		<param name="MaxFileSize" value="100MB" />
-		<param name="MaxBackupIndex" value="10" />
-		<layout class="org.iff.infra.util.ThreadIdPatternLayout">
-			<param name="ConversionPattern" value=" [%-d{yyyy-MM-dd HH:mm:ss}] [%p] [%C{1}:%L] [%t] %m%n" />
-		</layout>
-	</appender>
-	<!-- <appender class="com.foreveross.common.log.SocketAppender" name="SocketAppender">
-		<param name="Port" value="5678" />
-		<param name="RemoteHost" value="121.40.74.22" />
-		<param name="ReconnectionDelay" value="10000" />
-		<param name="Application" value="ods" />
-		<layout class="org.iff.infra.util.ThreadIdPatternLayout">
-			<param name="ConversionPattern" value=" [%-d{yyyy-MM-dd HH:mm:ss}] [%p] [%C{1}:%L] [%t] %m%n" />
-		</layout>
-	</appender> -->
 
-	<logger name="org.springframework">
-		<level value="INFO" />
-	</logger>
 
-	<logger name="FOSS">
-		<level value="debug" />
-	</logger>
-	
-	<logger name="TRACE">
-		<level value="debug" />
-	</logger>
-	
-	<logger name="com.caair.soc.log">
-		<level value="debug" />
-	</logger>
+<!--
+                %d{yyyy-MM-dd HH:mm:ss, SSS} : 日志生产时间
+                %p : 日志输出格式
+                %c : logger的名称
+                %m : 日志内容，即 logger.info("message")
+                %n : 换行符
+                %C : Java类名
+                %L : 日志输出所在行数
+                %M : 日志输出所在方法名
+                hostName : 本地机器名
+                hostAddress : 本地ip地址
+             -->
 
-	<root>
-		<level value="info" />
-		<appender-ref ref="RootConsoleAppender" />
-		<!-- <appender-ref ref="SocketAppender" /> -->
-	</root>
+<Configuration status="TRACE" packages="com.jk.log4j2">
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%m%n" />
+		</Console>
+		<redisAppender name="redisAppender"  key="key1">
+			<Property name="redisNodes">localhost:7000</Property>
+			<Property name="timeout">5000</Property>
+			<Property name="maxRedirections">20</Property>
+			<Property name="password"></Property>
+			
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+		</redisAppender>
+	</Appenders>
 
-</log4j:configuration>
+	<Loggers>
+	    <Logger name="org.apache.kafka" level="INFO">
+			<AppenderRef ref="console"/>
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="redisAppender" />
+		</Root>
+	</Loggers>
+</Configuration>
+            
+    

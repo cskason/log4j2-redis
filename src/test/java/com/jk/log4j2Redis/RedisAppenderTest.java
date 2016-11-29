@@ -21,7 +21,7 @@ public class RedisAppenderTest {
 		
 		for(int i=0;i<10;i++)
 		{
-			logger.info("tttttt"+i);
+			logger.info("test"+i);
 		}
 	}
 

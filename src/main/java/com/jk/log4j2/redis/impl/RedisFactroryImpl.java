@@ -1,13 +1,14 @@
 /**
  * 
  */
-package com.jk.log4j2.redis;
+package com.jk.log4j2.redis.impl;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import com.jk.log4j2.redis.BinaryJedisCluster;
+import com.jk.log4j2.redis.RedisFactrory;
 
 import redis.clients.jedis.HostAndPort;
 

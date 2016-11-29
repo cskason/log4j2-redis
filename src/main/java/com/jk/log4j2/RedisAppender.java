@@ -17,7 +17,7 @@ import org.apache.logging.log4j.core.config.plugins.PluginElement;
 import org.apache.logging.log4j.core.config.plugins.PluginFactory;
 
 import com.jk.log4j2.redis.RedisFactrory;
-import com.jk.log4j2.redis.RedisFactroryImpl;
+import com.jk.log4j2.redis.impl.RedisFactroryImpl;
 
 import java.io.Serializable;
 import java.util.Date;
