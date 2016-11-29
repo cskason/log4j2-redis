@@ -43,7 +43,6 @@ public class RedisFactroryImpl implements RedisFactrory{
 			if(jedisCluster!=null){
 				 return;
 			}
-			
 			try {
 				 Pattern p = Pattern.compile("^.+[:]\\d{1,5}\\s*$");
 				Set<HostAndPort> haps = new HashSet<HostAndPort>();

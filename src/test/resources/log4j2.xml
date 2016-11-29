@@ -20,7 +20,8 @@
 			<PatternLayout pattern="%m%n" />
 		</Console>
 		<redisAppender name="redisAppender"  key="key1">
-			<Property name="redisNodes">localhost:7000</Property>
+		   <!-- redisNodes 支持集群，多个节点用竖杠| 分隔 -->
+			<Property name="redisNodes">localhost:7000</Property> 
 			<Property name="timeout">5000</Property>
 			<Property name="maxRedirections">20</Property>
 			<Property name="password"></Property>
