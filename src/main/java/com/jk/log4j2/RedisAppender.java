@@ -32,13 +32,12 @@ public class RedisAppender extends AbstractAppender {
 	protected RedisAppender(String name, Filter filter,
 			Layout<? extends Serializable> layout) {
 		super(name, filter, layout);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	private static RedisFactrory redisFactrory;
 
 	private static String key;
-	
 	
 	
 	public static String[] getTraceId() {
