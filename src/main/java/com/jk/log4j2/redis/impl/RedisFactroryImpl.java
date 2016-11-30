@@ -51,7 +51,6 @@ public class RedisFactroryImpl implements RedisFactrory{
 				
 				for (String host :hosts) {
 
-
 					boolean isIpPort = p.matcher(host).matches();
 
 					if (!isIpPort) {

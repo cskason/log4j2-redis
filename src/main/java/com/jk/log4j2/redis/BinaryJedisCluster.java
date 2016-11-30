@@ -66,6 +66,7 @@ public class BinaryJedisCluster extends JedisCluster {
     	      int maxRedirections, final GenericObjectPoolConfig poolConfig) {
     	super( jedisClusterNode,  connectionTimeout,  soTimeout,
     	       maxRedirections,  poolConfig);
+    	
     	    this.connectionHandler = new JedisSlotBasedConnectionHandler(jedisClusterNode, poolConfig,
     	        connectionTimeout, soTimeout);
     	    this.maxRedirections = maxRedirections;

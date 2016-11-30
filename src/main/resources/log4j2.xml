@@ -23,6 +23,7 @@
 			<Property name="redisNodes">localhost:7000</Property>
 			<Property name="timeout">5000</Property>
 			<Property name="maxRedirections">20</Property>
+			<!-- password 校验开发未完成..... -->
 			<Property name="password"></Property>
 			
 			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
